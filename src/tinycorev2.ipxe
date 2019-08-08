@@ -3,7 +3,7 @@ ifopen net0
 ifstat
 
 
-set getfile app/config/loadefi
+set getfile app/config/tinycore.ipxe
 
    set menu-timeout 8000
    set menu-default nextserver
@@ -23,12 +23,13 @@ isset ${proxydhcp/next-server} && chain tftp://${proxydhcp/next-server}/${getfil
 chain tftp://${next-server}/${getfile}
 goto start
 
+
 :menu
 
 goto start
 
 :start
-  menu Choose An Existing Server!  Serverip:${serverip}  bootfile: ${getfile}
+  menu Choose An Existing Server!  Serverip:${serverip} bootfile: ${getfile}
   item --gap --             --------------------------------PXE BOOT-----------------------------
   item nextserver        ${next-server}
   item proxydhcp         ${proxydhcp/next-server}
