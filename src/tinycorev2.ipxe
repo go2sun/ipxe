@@ -20,8 +20,8 @@ chain file:/tftpboot/${getfile} || goto netboot
 set bootfile ${filename}
 set serverip ${proxydhcp/next-server}|${next-server}
 isset ${proxydhcp/next-server} && chain tftp://${proxydhcp/next-server}/${getfile} ||
-chain tftp://${next-server}/${getfile}
-goto start
+chain tftp://${next-server}/${getfile} || goto start
+
 
 
 :menu

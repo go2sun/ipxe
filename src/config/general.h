@@ -35,7 +35,7 @@ FILE_LICENCE ( GPL2_OR_LATER_OR_UBDL );
  */
 
 #define	NET_PROTO_IPV4		/* IPv4 protocol */
-#define	NET_PROTO_IPV6		/* IPv6 protocol */
+//#define	NET_PROTO_IPV6		/* IPv6 protocol */
 #undef	NET_PROTO_FCOE		/* Fibre Channel over Ethernet protocol */
 #define	NET_PROTO_STP		/* Spanning Tree protocol */
 #define	NET_PROTO_LACP		/* Link Aggregation control protocol */
@@ -106,7 +106,7 @@ FILE_LICENCE ( GPL2_OR_LATER_OR_UBDL );
 //#define	IMAGE_NBI		/* NBI image support */
 //#define	IMAGE_ELF		/* ELF image support */
 //#define	IMAGE_MULTIBOOT		/* MultiBoot image support */
-#define	IMAGE_PXE		/* PXE image support */
+//#define	IMAGE_PXE		/* PXE image support */
 //#define	IMAGE_SCRIPT		/* iPXE script image support */
 //#define	IMAGE_BZIMAGE		/* Linux bzImage image support */
 //#define	IMAGE_COMBOOT		/* SYSLINUX COMBOOT image support */
@@ -148,7 +148,7 @@ FILE_LICENCE ( GPL2_OR_LATER_OR_UBDL );
 //#define PCI_CMD		/* PCI commands */
 //#define PARAM_CMD		/* Form parameter commands */
 //#define NEIGHBOUR_CMD		/* Neighbour management commands */
-#define PING_CMD		/* Ping command */
+//#define PING_CMD		/* Ping command */
 #define CONSOLE_CMD		/* Console command */
 //#define IPSTAT_CMD		/* IP statistics commands */
 //#define PROFSTAT_CMD		/* Profiling commands */

@@ -7,4 +7,5 @@ copy src\bin\undionly.pxe out\tinycore.pxe.0 /y
 copy src\bin\undionly.kpxe out\tinycore.kpxe.0 /y
 copy src\bin\undionly.kkpxe out\tinycore.kkpxe.0 /y
 copy src\bin\undionly.kkkpxe out\tinycore.kkkpxe.0 /y
+copy out\*.0 D:\pxeboot\2019linuxserver\tftpboot /y
 pause
