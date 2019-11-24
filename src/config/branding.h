@@ -24,7 +24,7 @@ FILE_LICENCE ( GPL2_OR_LATER_OR_UBDL );
  * "iPXE".
  *
  */
-#define PRODUCT_NAME "get tinycore.ipxe for tinycore  20190811"
+#define PRODUCT_NAME "get tinycore.ipxe for tinycore  20191124"
 #define PRODUCT_SHORT_NAME "Cong iPXE"
 #define PRODUCT_URI "http://ipxe.org"
 
