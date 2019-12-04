@@ -57,7 +57,6 @@ jobs:
 
       - name: make
         run: |
-       
  cp ./src/config/console-bios.h ./src/config/console.h 
  cp ./src/config/general-bios.h ./src/config/general.h 
  cd src
