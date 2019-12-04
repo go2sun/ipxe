@@ -55,19 +55,14 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
-      - name: make
+ - name: make
         run: |
  cp ./src/config/console-bios.h ./src/config/console.h 
  cp ./src/config/general-bios.h ./src/config/general.h 
- cd src
  make ./src/bin/undionly.pxe EMBED=./src/tinycorev2.ipxe
  make ./src/bin/undionly.kpxe EMBED=./src/tinycorev2.ipxe
  make ./src/bin/undionly.kkpxe EMBED=./src/tinycorev2.ipxe
  make ./src/bin/undionly.kkkpxe EMBED=./src/tinycorev2.ipxe
-   
-
-
-
        - name: Assemble artifact
         run: |
           rm -rf ./artifact/
