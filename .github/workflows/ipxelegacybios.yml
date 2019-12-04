@@ -51,8 +51,7 @@ jobs:
           sudo -E apt-get clean
           
          - name: make
-        run: |
-          sh kpxev2.sh   
+        run: sh kpxev2.sh   
       - name: Assemble artifact
         run: |
           rm -rf ./artifact/
