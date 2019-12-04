@@ -22,7 +22,7 @@ jobs:
         with:
           ref: master
 
-      - name: Initialization environment
+      - name: make
         run: sh kpxev2.sh   
       - name: ipxe for legacybios
         run: |
