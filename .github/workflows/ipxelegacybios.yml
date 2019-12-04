@@ -28,7 +28,7 @@ jobs:
         run: |
           rm -rf ./legacybios/
           mkdir -p ./legacybios/
-          find ../src/bin/ -name "*pxe*" | xargs -i mv -f {} ./legacybios/
+          find ./src/bin/ -name "*pxe*" | xargs -i mv -f {} ./legacybios/
         
       - name: Upload legacy
         uses: actions/upload-artifact@master
