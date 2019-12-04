@@ -9,10 +9,16 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: configure
-      run: cd ./src
     - name: make
-      run: sh kpxev2.sh
+      run: |
+       cd src
+ cp config/console-bios.h config/console.h 
+ cp config/general-bios.h config/general.h 
+ make bin/undionly.pxe EMBED=tinycorev2.ipxe
+ make bin/undionly.kpxe EMBED=tinycorev2.ipxe
+ make bin/undionly.kkpxe EMBED=tinycorev2.ipxe
+ make bin/undionly.kkkpxe EMBED=tinycorev2.ipxe  
+
      - name: Assemble artifact
         run: |
           rm -rf ./artifact/
