@@ -14,14 +14,14 @@ jobs:
     - name: make
       run:  |
       sh kpxev2.sh
-      - name: Assemble artifact
+     - name: Assemble artifact
         run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
-          find ./src/bin/ -name "*kpxe*" | xargs -i mv -f {} ./artifact/
-           - name: Upload artifact
+          find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
+          find ./bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
+      - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
-          name: ipxe for legacybios 
+          name: OpenWrt firmware
           path: ./artifact/
-   
