@@ -23,10 +23,6 @@ jobs:
           ref: master
 
       - name: Initialization environment
-        env:
-          DEBIAN_FRONTEND: noninteractive
-      
-      - name: make
         run: sh kpxev2.sh   
       - name: ipxe for legacybios
         run: |
