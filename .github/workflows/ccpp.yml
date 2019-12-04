@@ -14,7 +14,7 @@ jobs:
     - name: make
       run:  |
       sh kpxev2.sh
-       name: Assemble artifact
+      - name: Assemble artifact
         run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
