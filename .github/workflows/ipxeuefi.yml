@@ -28,8 +28,8 @@ jobs:
         run: |
           rm -rf ./uefi/
           mkdir -p ./uefi/
-          find ../src/bin/ -name "*efi*" | xargs -i mv -f {} ./uefi/
-          cp ./src/bin/*.efi ./uefi/    
+          find ../src/bin-x86_64-efi -name "*efi*" | xargs -i mv -f {} ./uefi/
+          cp ./src/bin-x86_64-efi/*.efi ./uefi/    
        
       - name: Upload uefi
         uses: actions/upload-artifact@master
