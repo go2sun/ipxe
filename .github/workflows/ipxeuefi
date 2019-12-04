@@ -1,7 +1,7 @@
 
 
 
-name: ipxe-legacy bios
+name: ipxe-uefi
 
 on:
   push:
