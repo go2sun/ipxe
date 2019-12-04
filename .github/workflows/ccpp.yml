@@ -13,7 +13,7 @@ jobs:
       run: cd ./src
     - name: make
       run: sh kpxev2.sh
-       name: Assemble artifact
+      - name: Assemble artifact
         run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
@@ -21,6 +21,6 @@ jobs:
            - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
-          name: ipxe for legacybios 
+         - name: ipxe for legacybios 
           path: ./artifact/
    
