@@ -28,8 +28,9 @@ jobs:
         run: |
           rm -rf ./legacybios/
           mkdir -p ./legacybios/
-          find ./src/bin/ -name "*pxe*" | xargs -i mv -f {} ./legacybios/
-        
+          cp ./src/bin/
+          find ../src/bin/ -name "*pxe*" | xargs -i mv -f {} ./legacybios/
+          cp ./src/bin/undionly.kkpxe ./legacybios/       
       - name: Upload legacy
         uses: actions/upload-artifact@master
         with:
