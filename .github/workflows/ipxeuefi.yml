@@ -41,8 +41,8 @@ jobs:
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "Latest-net-uefi"
+          automatic_release_tag: "Latest-uefi"
           prerelease: false
-          title: "Development Build uefi [ipxe uefi下的启动文件loadefi.sh ]"
+          title: "Development Build uefi [ipxe uefi下的启动文件]"
           files: |
             ./uefi/*.*
