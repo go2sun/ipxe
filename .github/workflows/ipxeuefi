@@ -37,7 +37,7 @@ jobs:
           name: ipxe for uefi
           path: ./uefi/
 
-      - name: upload uefi   
+      - name: upload uefi release
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
