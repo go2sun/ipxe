@@ -22,7 +22,7 @@ jobs:
         with:
           ref: master
 
-      - name: make
+      - name: make efi
         run: sh loadefi.sh   
       - name: ipxe for uefi
         run: |
@@ -36,13 +36,33 @@ jobs:
         with:
           name: ipxe for uefi
           path: ./uefi/
-
-      - name: upload uefi release
+ 
+      - name: makebios
+        run: sh kpxev2.sh   
+ 
+      - name: ipxe for legacybios
+        run: |
+          rm -rf ./legacybios/
+          mkdir -p ./legacybios/
+          find ../src/bin/ -name "*pxe*" | xargs -i mv -f {} ./legacybios/
+          cp ./src/bin/undionly.kkpxe ./legacybios/    
+            cp ./src/bin/undionly.kpxe ./legacybios/ 
+              cp ./src/bin/undionly.kkkpxe ./legacybios/ 
+               cp ./src/bin/undionly.kpxe ./legacybios/ 
+                 
+      - name: Upload legacy
+        uses: actions/upload-artifact@master
+        with:
+          name: ipxe for legacybios
+          path: ./legacybios/
+ 
+      - name: upload legacy release  
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "Latest-uefi"
+          automatic_release_tag: "Latest"
           prerelease: false
-          title: "Development Build uefi [ipxe uefi下的启动文件]"
+          title: "Development Build legacybios and uefi [ipxe 的启动文件]"
           files: |
+            ./legacybios/*.*
             ./uefi/*.*
