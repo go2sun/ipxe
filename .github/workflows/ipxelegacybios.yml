@@ -40,7 +40,7 @@ jobs:
           name: ipxe for legacybios
           path: ./legacybios/
  
-      - name: upload legacy   
+      - name: upload legacy release  
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
