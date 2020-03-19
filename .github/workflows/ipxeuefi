@@ -37,4 +37,12 @@ jobs:
           name: ipxe for uefi
           path: ./uefi/
 
-
+      - name: upload uefi   
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "Latest-net-uefi"
+          prerelease: false
+          title: "Development Build uefi [ipxe uefi下的启动文件loadefi.sh ]"
+          files: |
+            ./uefi/*.*
