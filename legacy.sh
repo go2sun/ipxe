@@ -9,3 +9,4 @@
  make bin/ipxe.pxe
  make bin/ipxe.lkrn
  make bin/ipxe.usb
+ make bin/ipxe.dsk
