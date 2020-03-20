@@ -25,7 +25,8 @@ jobs:
       - name: make ipxe with EMBED
         run: |
           sh loadefi.sh   
-          sh kpxev2.sh  
+          sh kpxev2.sh
+          cd ..  
           rm -rf ./uefi-EMBED/
           rm -rf ./legacybios-EMBED/
           mkdir -p ./uefi-EMBED/
