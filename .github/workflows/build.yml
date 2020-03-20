@@ -42,21 +42,22 @@ jobs:
           mkdir -p ./legacybios-EMBED/
           sh kpxev2.sh
           mv ./src/bin/undionly.*pxe ./legacybios-EMBED/ 
+          mv ./src/bin/ipxe.pxe ./legacybios/
           mv ./src/bin/ipxe.lkrn ./legacybios-EMBED/ 
           mv ./src/bin/ipxe.usb ./legacybios-EMBED/ 
           mv ./src/bin/ipxe.dsk ./legacybios-EMBED/ 
       
-     - name: make for legacybios no EMBED
+      - name: make for legacybios no EMBED
         run: |
           rm -rf ./legacybios/
           mkdir -p ./legacybios/
           sh legacy.sh
-          mv ./src/bin/undionly.*pxe ./legacybios/ 
+          mv ./src/bin/undionly.*pxe ./legacybios/
+          mv ./src/bin/ipxe.pxe ./legacybios/  
           mv ./src/bin/ipxe.lkrn ./legacybios/ 
           mv ./src/bin/ipxe.usb ./legacybios/ 
           mv ./src/bin/ipxe.dsk ./legacybios/  
-            
-                      
+                           
       - name: upload release with EMBED
         uses: marvinpinto/action-automatic-releases@latest
         with:
