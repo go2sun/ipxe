@@ -22,41 +22,34 @@ jobs:
         with:
           ref: master
 
-      - name: make efi
-        run: sh loadefi.sh   
-      - name: ipxe for uefi
+      - name: make
+        run: |
+          sh loadefi.sh   
+          sh kpxev2.sh  
+      
+      - name: ipxe for all
         run: |
           rm -rf ./uefi/
-          mkdir -p ./uefi/
-          find ../src/bin/ -name "*efi*" | xargs -i mv -f {} ./uefi/
-          cp ./src/bin/*.efi ./uefi/    
-       
-      - name: Upload uefi
-        uses: actions/upload-artifact@master
-        with:
-          name: ipxe for uefi
-          path: ./uefi/
- 
-      - name: makebios
-        run: sh kpxev2.sh   
- 
-      - name: ipxe for legacybios
-        run: |
           rm -rf ./legacybios/
+          mkdir -p ./uefi/
           mkdir -p ./legacybios/
+          find ../src/bin/ -name "*efi*" | xargs -i mv -f {} ./uefi/
           find ../src/bin/ -name "*pxe*" | xargs -i mv -f {} ./legacybios/
+          cp ./src/bin/*.efi ./uefi/  
           cp ./src/bin/undionly.kkpxe ./legacybios/    
-            cp ./src/bin/undionly.kpxe ./legacybios/ 
-              cp ./src/bin/undionly.kkkpxe ./legacybios/ 
-               cp ./src/bin/undionly.kpxe ./legacybios/ 
-                 
-      - name: Upload legacy
+          cp ./src/bin/undionly.kpxe ./legacybios/ 
+          cp ./src/bin/undionly.kkkpxe ./legacybios/ 
+          cp ./src/bin/undionly.kpxe ./legacybios/   
+       
+      - name: Upload ipxe
         uses: actions/upload-artifact@master
         with:
-          name: ipxe for legacybios
-          path: ./legacybios/
+          name: ipxe for legacy and uefi
+          path: |
+            ./uefi/
+            ./legacybios/
  
-      - name: upload legacy release  
+      - name: upload release  
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
