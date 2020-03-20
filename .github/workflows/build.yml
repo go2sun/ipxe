@@ -34,7 +34,7 @@ jobs:
           rm -rf ./uefi/
           mkdir -p ./uefi/
           sh uefi.sh
-          mv ./src/bin-x86_64-efi/*.efi ./uefi-EMBED/      
+          mv ./src/bin-x86_64-efi/*.efi ./uefi/      
       
       - name: make for legacybios with EMBED
         run: |
