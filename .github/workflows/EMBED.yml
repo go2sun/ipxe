@@ -1,7 +1,7 @@
 
 
 
-name: ipxe-uefi
+name: ipxe-build
 
 on:
   push:
@@ -68,7 +68,7 @@ jobs:
             ./legacybios-EMBED/*.*
             ./uefi-EMBED/*.*
      
-     - name: upload release no EMBED
+      - name: upload release no EMBED
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
