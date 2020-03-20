@@ -21,41 +21,36 @@ jobs:
         uses: actions/checkout@master
         with:
           ref: master
-
-      - name: make
+     
+      - name: make ipxe with EMBED
         run: |
           sh loadefi.sh   
           sh kpxev2.sh  
-      
-      - name: ipxe for all
-        run: |
-          rm -rf ./uefi/
-          rm -rf ./legacybios/
-          mkdir -p ./uefi/
-          mkdir -p ./legacybios/
-          find ../src/bin/ -name "*efi*" | xargs -i mv -f {} ./uefi/
-          find ../src/bin/ -name "*pxe*" | xargs -i mv -f {} ./legacybios/
-          cp ./src/bin/*.efi ./uefi/  
-          cp ./src/bin/undionly.kkpxe ./legacybios/    
-          cp ./src/bin/undionly.kpxe ./legacybios/ 
-          cp ./src/bin/undionly.kkkpxe ./legacybios/ 
-          cp ./src/bin/undionly.kpxe ./legacybios/   
+          rm -rf ./uefi-EMBED/
+          rm -rf ./legacybios-EMBED/
+          mkdir -p ./uefi-EMBED/
+          mkdir -p ./legacybios-EMBED/
+          mv ./src/bin/*.efi ./uefi-EMBED/  
+          mv ./src/bin/undionly.kkpxe ./legacybios-EMBED/    
+          mv ./src/bin/undionly.kpxe ./legacybios-EMBED/ 
+          mv ./src/bin/undionly.kkkpxe ./legacybios-EMBED/ 
+          mv ./src/bin/undionly.kpxe ./legacybios-EMBED/   
        
-      - name: Upload ipxe
+      - name: Upload ipxe with EMBED
         uses: actions/upload-artifact@master
         with:
-          name: ipxe for legacy and uefi
+          name: ipxe for legacy and uefi with EMBED
           path: |
-            ./uefi/
-            ./legacybios/
+            ./uefi-EMBED/
+            ./legacybios-EMBED/
  
-      - name: upload release  
+      - name: upload release with EMBED
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "Latest"
           prerelease: false
-          title: "Development Build legacybios and uefi [ipxe 的启动文件]"
+          title: "Development Build legacybios and uefi [ipxe 的启动文件已嵌入脚本]"
           files: |
-            ./legacybios/*.*
-            ./uefi/*.*
+            ./legacybios-EMBED/*.*
+            ./uefi-EMBED/*.*
