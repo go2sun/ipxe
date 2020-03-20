@@ -22,23 +22,13 @@ jobs:
         with:
           ref: master
      
-      - name: make uefi with EMBED
+      - name: make for uefi with EMBED
         run: |
-          cd ..
           rm -rf ./uefi-EMBED/
           mkdir -p ./uefi-EMBED/
           sh loadefi.sh
           mv ./src/bin-x86_64-efi/*.efi ./uefi-EMBED/
                 
-      - name: make legacybios with EMBED
-        run: |
-          cd ..
-          rm -rf ./legacybios-EMBED/
-          mkdir -p ./legacybios-EMBED/
-          sh kpxev2.sh
-          mv ./src/bin/undionly.*pxe ./legacybios-EMBED/ 
-          cd ..   
-      
       - name: upload release with EMBED
         uses: marvinpinto/action-automatic-releases@latest
         with:
