@@ -28,6 +28,13 @@ jobs:
           mkdir -p ./uefi-EMBED/
           sh loadefi.sh
           mv ./src/bin-x86_64-efi/*.efi ./uefi-EMBED/
+     
+      - name: make for uefi no EMBED
+        run: |
+          rm -rf ./uefi/
+          mkdir -p ./uefi/
+          sh uefi.sh
+          mv ./src/bin-x86_64-efi/*.efi ./uefi-EMBED/      
       
       - name: make for legacybios with EMBED
         run: |
@@ -35,6 +42,19 @@ jobs:
           mkdir -p ./legacybios-EMBED/
           sh kpxev2.sh
           mv ./src/bin/undionly.*pxe ./legacybios-EMBED/ 
+          mv ./src/bin/ipxe.lkrn ./legacybios-EMBED/ 
+          mv ./src/bin/ipxe.usb ./legacybios-EMBED/ 
+          mv ./src/bin/ipxe.dsk ./legacybios-EMBED/ 
+      
+     - name: make for legacybios no EMBED
+        run: |
+          rm -rf ./legacybios/
+          mkdir -p ./legacybios/
+          sh legacy.sh
+          mv ./src/bin/undionly.*pxe ./legacybios/ 
+          mv ./src/bin/ipxe.lkrn ./legacybios/ 
+          mv ./src/bin/ipxe.usb ./legacybios/ 
+          mv ./src/bin/ipxe.dsk ./legacybios/  
             
                       
       - name: upload release with EMBED
@@ -47,3 +67,14 @@ jobs:
           files: |
             ./legacybios-EMBED/*.*
             ./uefi-EMBED/*.*
+     
+     - name: upload release no EMBED
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "Latest"
+          prerelease: false
+          title: "Development Build legacybios and uefi [ipxe 的启动文件未嵌入脚本]"
+          files: |
+            ./legacybios/*.*
+            ./uefi/*.*       
