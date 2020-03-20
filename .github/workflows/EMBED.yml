@@ -27,15 +27,15 @@ jobs:
           rm -rf ./uefi-EMBED/
           mkdir -p ./uefi-EMBED/
           sh loadefi.sh
-          ls ./
-          mv ./bin-x86_64-efi/*.efi ./uefi-EMBED/
+          ls ./src/bin
+          mv ./src/bin-x86_64-efi/*.efi ./uefi-EMBED/
           rm -rf ./legacybios-EMBED/
           mkdir -p ./legacybios-EMBED/
           sh kpxev2.sh
-          mv ./bin/undionly.kkpxe ./legacybios-EMBED/    
-          mv ./bin/undionly.kpxe ./legacybios-EMBED/ 
-          mv ./bin/undionly.kkkpxe ./legacybios-EMBED/ 
-          mv ./bin/undionly.kpxe ./legacybios-EMBED/   
+          mv ./src/bin/undionly.kkpxe ./legacybios-EMBED/    
+          mv ./src/bin/undionly.kpxe ./legacybios-EMBED/ 
+          mv ./src/bin/undionly.kkkpxe ./legacybios-EMBED/ 
+          mv ./src/bin/undionly.kpxe ./legacybios-EMBED/   
        
       - name: Upload ipxe with EMBED
         uses: actions/upload-artifact@master
