@@ -24,27 +24,21 @@ jobs:
      
       - name: make uefi with EMBED
         run: |
+          cd ..
           rm -rf ./uefi-EMBED/
           mkdir -p ./uefi-EMBED/
           sh loadefi.sh
-          ls ./src/bin
           mv ./src/bin-x86_64-efi/*.efi ./uefi-EMBED/
                 
       - name: make legacybios with EMBED
         run: |
+          cd ..
           rm -rf ./legacybios-EMBED/
           mkdir -p ./legacybios-EMBED/
           sh kpxev2.sh
-          mv ./src/bin/undionly.*pxe ./legacybios-EMBED/    
+          mv ./src/bin/undionly.*pxe ./legacybios-EMBED/ 
+          cd ..   
       
-      - name: Upload ipxe with EMBED
-        uses: actions/upload-artifact@master
-        with:
-          name: ipxe for legacy and uefi with EMBED
-          path: |
-            ./uefi-EMBED/
-            ./legacybios-EMBED/
- 
       - name: upload release with EMBED
         uses: marvinpinto/action-automatic-releases@latest
         with:
