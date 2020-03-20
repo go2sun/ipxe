@@ -42,7 +42,7 @@ jobs:
           mkdir -p ./legacybios-EMBED/
           sh kpxev2.sh
           mv ./src/bin/undionly.*pxe ./legacybios-EMBED/ 
-          mv ./src/bin/ipxe.pxe ./legacybios/
+          mv ./src/bin/ipxe.pxe ./legacybios-EMBED/
           mv ./src/bin/ipxe.lkrn ./legacybios-EMBED/ 
           mv ./src/bin/ipxe.usb ./legacybios-EMBED/ 
           mv ./src/bin/ipxe.dsk ./legacybios-EMBED/ 
