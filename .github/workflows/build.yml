@@ -72,7 +72,7 @@ jobs:
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "Latest"
+          automatic_release_tag: "Latest-default"
           prerelease: false
           title: "Development Build legacybios and uefi [ipxe 的启动文件未嵌入脚本]"
           files: |
