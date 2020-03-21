@@ -21,7 +21,11 @@ jobs:
         uses: actions/checkout@master
         with:
           ref: master
-     
+          
+      - name: install mkisofs
+        run: |
+          sudo apt install mkisofs
+          
       - name: make for uefi with EMBED
         run: |
           rm -rf ./uefi-EMBED/
