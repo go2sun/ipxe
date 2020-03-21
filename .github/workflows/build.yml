@@ -46,7 +46,7 @@ jobs:
           mv ./src/bin/ipxe.lkrn ./legacybios-EMBED/ 
           mv ./src/bin/ipxe.usb ./legacybios-EMBED/ 
           mv ./src/bin/ipxe.dsk ./legacybios-EMBED/
-         mv ./src/bin/ipxe.iso ./legacybios-EMBED/ 
+          mv ./src/bin/ipxe.iso ./legacybios-EMBED/ 
       
       - name: make for legacybios no EMBED
         run: |
