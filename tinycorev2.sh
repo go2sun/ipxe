@@ -9,6 +9,7 @@
  make bin/ipxe.lkrn EMBED=tinycorev2.ipxe
  make bin/ipxe.usb EMBED=tinycorev2.ipxe
  make bin/ipxe.dsk EMBED=tinycorev2.ipxe
+ make bin/ipxe.iso EMBED=tinycorev2.ipxe
 
    
    
