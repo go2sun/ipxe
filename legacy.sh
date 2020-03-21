@@ -10,3 +10,4 @@
  make bin/ipxe.lkrn
  make bin/ipxe.usb
  make bin/ipxe.dsk
+ make bin/ipxe.iso
