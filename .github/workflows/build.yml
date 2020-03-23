@@ -39,7 +39,10 @@ jobs:
           mkdir -p ./uefi/
           sh uefi.sh
           mv ./src/bin-x86_64-efi/*.efi ./uefi/      
-      
+          mv ./src/bin-x86_64-efi/ipxe.efidrv ./uefi/  
+          mv ./src/bin-x86_64-linux/*.linux ./uefi/  
+          mv ./src/bin-x86_64-efi/ipxe.efirom ./uefi/     
+    
       - name: make for legacybios with EMBED
         run: |
           rm -rf ./legacybios-EMBED/
